@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  web:
+    build:
+      context: .
+      target: base
+    command: bin/rails server -b 0.0.0.0
+    volumes:
+      - app-sync:/app:nocopy
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+      - redis
+  css:
+    build:
+      context: .
+      target: base
+    command: bin/rails tailwindcss:watch[debug]
+    tty: true
+    volumes:
+      - app-sync:/app:nocopy
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: postgres
+  redis:
+    image: redis:6
+
+volumes:
+  app-sync:
+    external: true
