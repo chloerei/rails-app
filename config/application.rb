@@ -24,5 +24,9 @@ module App
       url: ENV["REDIS_URL"],
       pool_size: ENV.fetch("RAILS_MAX_THREADS") { 5 }
     }
+
+    config.generators do |generate|
+      generate.helper false
+    end
   end
 end
