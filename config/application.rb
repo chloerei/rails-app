@@ -18,5 +18,11 @@ module App
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Use redis cache by default
+    config.cache_store = :redis_cache_store, {
+      url: ENV["REDIS_URL"],
+      pool_size: ENV.fetch("RAILS_MAX_THREADS") { 5 }
+    }
   end
 end
