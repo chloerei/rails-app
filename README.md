@@ -2,6 +2,13 @@
 
 A Rails project template lets me start new projects quickly.
 
+## Feature
+
+- Docker
+- ENV
+- Redis cache store
+- All other Rails default stack
+
 ## Prepare
 
 - Install Docker https://docs.docker.com/get-docker/
