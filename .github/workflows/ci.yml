@@ -1,0 +1,23 @@
+name: CI
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Build container image
+        uses: docker/build-push-action@v3
+        with:
+          load: true
+          tags: app:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Prepare db
+        run: docker-compose -f docker-compose.ci.yml run ci bin/rails db:prepare
+      - name: Run test
+        run: docker-compose -f docker-compose.ci.yml run ci bin/rails test

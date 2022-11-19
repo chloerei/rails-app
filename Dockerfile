@@ -20,10 +20,6 @@ COPY Gemfile Gemfile.lock /app/
 
 RUN bundle install
 
-COPY package.json package-lock.json /app/
-
-RUN npm install
-
 COPY . /app/
 
 RUN bin/rails assets:precompile
