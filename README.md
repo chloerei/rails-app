@@ -6,7 +6,10 @@ A Rails project template lets me start new projects quickly.
 
 - Docker
 - ENV
-- Redis cache store
+- PosgreSQL
+- Redis
+- Github Actions
+- Brakeman
 - All other Rails default stack
 
 ## Prepare
