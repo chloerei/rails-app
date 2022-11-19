@@ -5,7 +5,7 @@ A Rails project template lets me start new projects quickly.
 ## Feature
 
 - Docker
-- ENV
+- dotenv
 - PosgreSQL
 - Redis
 - Github Actions
@@ -28,7 +28,7 @@ $ git clone https://github.com/chloerei/rails-app.git myapp
 Rename App:
 
 - Rename `App` in `config/application.rb`
-- Rename `app-sync` in `docker-compose.yml` and `docker-sync`
+- Rename `app-sync` in `docker-compose.yml` and `docker-sync.yml`
 
 Start docker-sync:
 
