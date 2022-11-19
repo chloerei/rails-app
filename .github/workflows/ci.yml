@@ -14,12 +14,9 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           load: true
-          tags: app:ci
           cache-from: type=gha
           cache-to: type=gha,mode=max
-      - name: Prepare db
-        run: docker-compose -f docker-compose.ci.yml run ci bin/rails db:prepare
       - name: Run test
-        run: docker-compose -f docker-compose.ci.yml run ci bin/rails test
+        run: docker compose -f docker-compose.ci.yml run ci bash -c "bin/rails db:prepare && bin/rails test"
       - name: Run brakeman
-        run: docker-compose -f docker-compose.ci.yml run ci bundle exec brakeman
+        run: docker compose -f docker-compose.ci.yml run ci bundle exec brakeman
