@@ -3,4 +3,4 @@ version: '2'
 syncs:
   app-sync:
     src: './'
-    sync_excludes: ['.git', 'vendor/bundle', 'tmp', 'log', 'public/uploads', 'public/assets']
+    sync_excludes: ['.git', 'vendor/bundle', 'tmp', 'log', 'storage', 'public/assets']
