@@ -21,3 +21,5 @@ jobs:
         run: docker-compose -f docker-compose.ci.yml run ci bin/rails db:prepare
       - name: Run test
         run: docker-compose -f docker-compose.ci.yml run ci bin/rails test
+      - name: Run brakeman
+        run: docker-compose -f docker-compose.ci.yml run ci bundle exec brakeman
