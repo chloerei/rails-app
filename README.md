@@ -25,11 +25,6 @@ Clone this repo:
 $ git clone https://github.com/chloerei/rails-app.git myapp
 ```
 
-Rename App:
-
-- Rename `App` in `config/application.rb`
-- Rename `app-sync` in `docker-compose.yml` and `docker-sync.yml`
-
 Start docker-sync:
 
 ```
@@ -53,3 +48,9 @@ Open console:
 ```
 $ docker compose run --rm web bash
 ```
+
+## Config
+
+### DOCKER_SYNC_NAME
+
+If you are developing multiple projects, modify `DOCKER_SYNC_NAME` in .env to make it unique.
