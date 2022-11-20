@@ -30,5 +30,5 @@ services:
 
 volumes:
   app-sync:
-    external:
-      name: "${DOCKER_SYNC_NAME}-sync"
+    external: true
+    name: "${DOCKER_SYNC_NAME}-sync"
