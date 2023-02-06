@@ -25,12 +25,6 @@ Clone this repo:
 $ git clone https://github.com/chloerei/rails-app.git myapp
 ```
 
-Start docker-sync:
-
-```
-$ docker-sync start
-```
-
 Build and install dependency:
 
 ```

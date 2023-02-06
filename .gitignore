@@ -33,9 +33,6 @@
 !/app/assets/builds/.keep
 /public/assets
 
-# Ignore docker-sync config.
-/.docker-sync
-
 # Ignore env local config.
 /.env.*.local
 /.env.local

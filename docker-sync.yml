@@ -1,6 +1,0 @@
-version: '2'
-
-syncs:
-  ${DOCKER_SYNC_NAME}-sync:
-    src: './'
-    sync_excludes: ['.git', 'vendor/bundle', 'tmp', 'log', 'storage', 'public/assets']

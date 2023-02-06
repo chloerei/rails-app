@@ -7,7 +7,7 @@ services:
       target: base
     command: bin/rails server -b 0.0.0.0
     volumes:
-      - app-sync:/app:nocopy
+      - .:/app
     ports:
       - 3000:3000
     depends_on:
@@ -20,15 +20,10 @@ services:
     command: bin/rails tailwindcss:watch[debug]
     tty: true
     volumes:
-      - app-sync:/app:nocopy
+      - .:/app
   postgres:
     image: postgres:14
     environment:
       POSTGRES_PASSWORD: postgres
   redis:
     image: redis:6
-
-volumes:
-  app-sync:
-    external: true
-    name: "${DOCKER_SYNC_NAME}-sync"
