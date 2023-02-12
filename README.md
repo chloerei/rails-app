@@ -42,9 +42,3 @@ Open console:
 ```
 $ docker compose run --rm web bash
 ```
-
-## Config
-
-### DOCKER_SYNC_NAME
-
-If you are developing multiple projects, modify `DOCKER_SYNC_NAME` in .env to make it unique.
