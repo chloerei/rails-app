@@ -13,14 +13,6 @@ services:
     depends_on:
       - postgres
       - redis
-  css:
-    build:
-      context: .
-      target: base
-    command: bin/rails tailwindcss:watch[debug]
-    tty: true
-    volumes:
-      - .:/app
   postgres:
     image: postgres:14
     environment:
