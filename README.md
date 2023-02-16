@@ -14,8 +14,7 @@ A Rails project template lets me start new projects quickly.
 
 ## Prepare
 
-- Install Docker https://docs.docker.com/get-docker/
-- Install docker-sync https://github.com/EugenMayer/docker-sync
+- Install Docker https://www.docker.com/products/docker-desktop/
 
 ## Usage
 
