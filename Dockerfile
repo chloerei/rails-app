@@ -10,16 +10,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN gem install bundler && \
   bundle config set --local path vendor/bundle
 
-WORKDIR /app
+WORKDIR /rails
 
 ### CI stage ###
 
 FROM base AS production
 
-COPY Gemfile Gemfile.lock /app/
+COPY Gemfile Gemfile.lock /rails/
 
 RUN bundle install
 
-COPY . /app/
+COPY . /rails/
 
 RUN bin/rails assets:precompile
