@@ -7,12 +7,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libvips42 \
   postgresql-client
 
-RUN gem install bundler && \
+RUN gem install bundler -v 2.4.8 && \
   bundle config set --local path vendor/bundle
 
 WORKDIR /rails
 
-### CI stage ###
+### production stage ###
 
 FROM base AS production
 
