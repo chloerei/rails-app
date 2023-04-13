@@ -21,8 +21,8 @@ module App
 
     # Use redis cache by default
     config.cache_store = :redis_cache_store, {
-      url: ENV["REDIS_URL"],
-      pool_size: ENV.fetch("RAILS_MAX_THREADS") { 5 }
+      url: ENV.fetch("REDIS_URL", "redis://redis:6379/0"),
+      pool_size: ENV.fetch("RAILS_MAX_THREADS", 5)
     }
 
     config.generators do |generate|

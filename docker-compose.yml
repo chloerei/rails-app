@@ -14,7 +14,7 @@ services:
       - postgres
       - redis
   postgres:
-    image: postgres:14
+    image: postgres:15
     environment:
       POSTGRES_PASSWORD: postgres
   redis:
