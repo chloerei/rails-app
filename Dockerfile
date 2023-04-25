@@ -1,6 +1,6 @@
 ### base stage ###
 
-FROM ruby:3.2.0 AS base
+FROM ruby:3.2.2 AS base
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   libpq-dev \
