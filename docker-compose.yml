@@ -18,4 +18,4 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
   redis:
-    image: redis:6
+    image: redis:7

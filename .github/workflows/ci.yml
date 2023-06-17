@@ -5,18 +5,34 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@localhost/geeknote_test
+      REDIS_URL: redis://localhost:6379/0
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      - name: Build container image
-        uses: docker/build-push-action@v3
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          load: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          ruby-version: 3.2.2
+          bundler-cache: true
+      - name: Setup db
+        run: bin/rails db:prepare
+      - name: Asset precompile
+        run: bin/rails assets:precompile
       - name: Run test
-        run: docker compose -f docker-compose.ci.yml run ci bash -c "bin/rails db:prepare && bin/rails test"
+        run: bin/rails test
       - name: Run brakeman
-        run: docker compose -f docker-compose.ci.yml run ci bundle exec brakeman
+        run: bundle exec brakeman
