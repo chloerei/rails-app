@@ -5,14 +5,14 @@ default: &default
 
 development:
   <<: *default
-  host: postgres
+  host: localhost
   username: postgres
   password: postgres
   database: app_development
 
 test:
   <<: *default
-  host: postgres
+  host: localhost
   username: postgres
   password: postgres
   database: app_test

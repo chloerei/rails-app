@@ -13,6 +13,9 @@ services:
     depends_on:
       - postgres
       - redis
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432
+      REDIS_URL: redis://redis:6379/0
   postgres:
     image: postgres:15
     environment:
