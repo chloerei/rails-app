@@ -16,6 +16,10 @@ jobs:
         image: redis:7
         ports:
           - 6379:6379
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432
+      REDIS_URL: redis://localhost:6379
     steps:
       - name: Checkout
         uses: actions/checkout@v3
