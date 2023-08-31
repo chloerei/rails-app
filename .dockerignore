@@ -37,8 +37,8 @@
 /public/assets
 
 # Ignore env local config.
-/.env.*.local
-/.env.local
+/.env
+/.env.*
 
 # Ignore docker compose config.
 /docker-compose.*
